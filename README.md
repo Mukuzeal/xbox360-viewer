@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="icon/icon.svg" width="128" alt="Xbox 360 Content Viewer">
+</p>
+
 # Xbox 360 Content Viewer
 
 A small GUI for browsing the games installed on an RGH/JTAG console's drive --
@@ -26,7 +30,9 @@ cover thumbnails, everything else still works.
 
     pip install pyinstaller pillow
     pyinstaller --onefile --windowed --name Xbox360ContentViewer \
+        --icon icon/icon.ico \
         --add-data "gamelist_xbox360.csv;." --add-data "gamelist_xbox.csv;." \
+        --add-data "icon/icon.ico;icon" \
         viewer.py
 
 The result lands in `dist/`. Both gamelists are bundled inside and read back
@@ -116,3 +122,4 @@ simply unlisted dump, not necessarily a broken one.
 - `stfs.py` -- STFS header parser (Xbox 360 packages)
 - `xbe.py` -- default.xbe header parser (original Xbox)
 - `gamelist_xbox360.csv`, `gamelist_xbox.csv` -- Iso2God dump lists, bundled into the exe
+- `icon/` -- `icon.svg` source, PNG exports, and the multi-size `icon.ico` the exe uses

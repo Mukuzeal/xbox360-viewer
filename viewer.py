@@ -92,6 +92,9 @@ class Viewer(tk.Tk):
     def __init__(self, initial_root=None):
         super().__init__()
         self.title("Xbox 360 Content Viewer")
+        icon = os.path.join(scanner.HERE, "icon", "icon.ico")
+        if os.path.isfile(icon):
+            self.iconbitmap(icon)
         self.geometry("1180x680")
         self.minsize(940, 480)
         self.configure(bg=BG)
