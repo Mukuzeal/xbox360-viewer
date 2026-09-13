@@ -7,6 +7,8 @@
 A small GUI for browsing the games installed on an RGH/JTAG console's drive --
 both Xbox 360 titles and original Xbox ones.
 
+![The viewer scanning an Xbox 360 drive](docs/screenshot.png)
+
 ## Download
 
 Grab **Xbox360ContentViewer.exe** from the
