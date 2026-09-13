@@ -3,7 +3,16 @@
 A small GUI for browsing the games installed on an RGH/JTAG console's drive --
 both Xbox 360 titles and original Xbox ones.
 
-## Run
+## Download
+
+Grab **Xbox360ContentViewer.exe** from the
+[Releases page](https://github.com/Mukuzeal/xbox360-viewer/releases/latest)
+and double-click it. No Python, no install -- the gamelists are baked in.
+
+Windows SmartScreen will warn you the first time, because the exe is unsigned.
+**More info -> Run anyway** to get past it.
+
+## Run from source
 
     python viewer.py            # auto-picks the last detected Xbox drive
     python viewer.py F:\        # or point it at a specific drive/folder
@@ -12,6 +21,16 @@ Or double-click **Xbox 360 Content Viewer.bat**.
 
 Requires Python 3 with tkinter. Pillow is optional -- without it you lose the
 cover thumbnails, everything else still works.
+
+## Building the exe
+
+    pip install pyinstaller pillow
+    pyinstaller --onefile --windowed --name Xbox360ContentViewer \
+        --add-data "gamelist_xbox360.csv;." --add-data "gamelist_xbox.csv;." \
+        viewer.py
+
+The result lands in `dist/`. Both gamelists are bundled inside and read back
+out of the unpacked bundle at runtime, so the exe ships as a single file.
 
 ## What it reads
 
@@ -96,3 +115,4 @@ simply unlisted dump, not necessarily a broken one.
 - `scanner.py` -- drive walker and gamelist lookup
 - `stfs.py` -- STFS header parser (Xbox 360 packages)
 - `xbe.py` -- default.xbe header parser (original Xbox)
+- `gamelist_xbox360.csv`, `gamelist_xbox.csv` -- Iso2God dump lists, bundled into the exe

@@ -3,12 +3,14 @@
 import collections
 import csv
 import os
+import sys
 
 import stfs
 import xbe
 
 ISO2GOD_DIR = r"C:\Users\McZeal\Downloads\Uploads\Iso2God-main"
-HERE = os.path.dirname(os.path.abspath(__file__))
+# Frozen by PyInstaller the gamelists live in the unpacked bundle, not beside the exe.
+HERE = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
 
 # Folders an original Xbox game may be dropped into, alongside Games\.
 XBOX_ROOTS = ("Games", "Xbox1", "XBOX1", "XboxOriginals", "Xbox Originals")
